@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS folder (
+    path TEXT NOT NULL PRIMARY KEY,
+    displayName TEXT NOT NULL,
+    lastScan INTEGER DEFAULT NULL
+);
+
+insert:
+INSERT OR IGNORE INTO folder(path, displayName, lastScan) VALUES ?;
+
+all:
+SELECT * FROM folder;

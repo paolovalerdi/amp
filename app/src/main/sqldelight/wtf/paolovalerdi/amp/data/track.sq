@@ -1,0 +1,46 @@
+CREATE TABLE IF NOT EXISTS track (
+    id TEXT NOT NULL PRIMARY KEY,
+    treeUri TEXT NOT NULL,
+    uri TEXT NOT NULL,
+    albumArtist TEXT,
+    albumArtistSort TEXT,
+    album TEXT,
+    albumSort TEXT,
+    discSubtitle TEXT,
+    discNumber INTEGER NOT NULL DEFAULT 0,
+    discTotal INTEGER NOT NULL DEFAULT 0,
+    releaseDate TEXT,
+    publisher TEXT,
+    label TEXT,
+    copyright TEXT,
+    lyricist TEXT,
+    composer TEXT,
+    composerSort TEXT,
+    arranger TEXT,
+    artist TEXT,
+    artistSort TEXT,
+    conductor TEXT,
+    work TEXT,
+    grouping TEXT,
+    title TEXT,
+    titleSort TEXT,
+    subtitle TEXT,
+    trackNumber INTEGER NOT NULL DEFAULT 0,
+    trackTotal INTEGER NOT NULL DEFAULT 0,
+    originalData TEXT,
+    date TEXT,
+    comment TEXT,
+    lyrics TEXT,
+    mood TEXT,
+    rating TEXT,
+    albumArtId TEXT NOT NULL
+);
+
+insert:
+INSERT OR IGNORE INTO track VALUES ?;
+
+all:
+SELECT * FROM track;
+
+albums:
+SELECT DISTINCT album, albumArtist, releaseDate, albumArtId FROM track ORDER BY album, albumArtist ASC;
